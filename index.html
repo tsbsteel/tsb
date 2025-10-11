@@ -1,128 +1,132 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PT. Timur Sukses Bajatama - Distributor Besi & Fabrikasi Logam</title>
-  <!-- Load Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Load Inter Font (Elegan dan Modern) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <!-- Load Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <style>
-    /* Konfigurasi Kustom Tailwind */
-    :root {
-      --primary-dark: #1f2937; /* Warna teks utama */
-      --primary-blue: #312e81; /* Deep Indigo - Elegan */
-      --accent-gold: #fbbf24; /* Amber/Gold - Futuristik */
-      --bg-light: #f9fafb; /* Latar belakang super ringan */
-    }
-
-    /* Mengganti Font Default dengan Inter dan Set Background */
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light); 
-      color: var(--primary-dark);
-      line-height: 1.65;
-      scroll-behavior: smooth;
-    }
-
-    /* Kustomisasi Slider agar transisinya tetap dinamis */
-    .slider-container {
-        height: 550px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .slider {
-      display: flex;
-      width: 300%; /* 3 Gambar */
-      height: 100%;
-      /* Efek transisi yang lebih halus dan elegan */
-      transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Timur Sukses Bajatama - Distributor Besi & Fabrikasi Logam</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font (Elegan dan Modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    .slider img {
-      width: calc(100% / 3);
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.8); /* Redupkan untuk kontras teks */
-    }
-
-    /* Burger menu icon styling */
-    .burger-menu .bar {
-      transition: all 0.3s ease-in-out;
-    }
-    .burger-menu.active .bar:nth-child(1) {
-      transform: rotate(45deg) translate(6px, 6px);
-    }
-    .burger-menu.active .bar:nth-child(2) {
-      opacity: 0;
-    }
-    .burger-menu.active .bar:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
+    <!-- Load Lucide Icons (TETAP DIPERLUKAN UNTUK ICON LAIN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     
-    /* Nav Mobile Animation */
-    #nav-menu {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    
-    /* Hover link navigation style */
-    .nav-link-hover::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 3px;
-        bottom: 0;
-        left: 0;
-        background-color: var(--accent-gold);
-        border-radius: 9999px;
-        transition: width 0.3s ease;
-    }
-    .nav-link-hover:hover::after {
-        width: 100%;
-    }
+    <!-- Load Font Awesome Icons (BARU DITAMBAHKAN KHUSUS UNTUK ICON WHATSAPP) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/cd8kOODxZkNsKxJhYhJv/5g5t50y5jHhT+r8bF/n9QY5pX20P5x8+D+v0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  </style>
+    <style>
+        /* Konfigurasi Kustom Tailwind */
+        :root {
+            --primary-dark: #1f2937; /* Warna teks utama */
+            --primary-blue: #312e81; /* Deep Indigo - Elegan */
+            --accent-gold: #fbbf24; /* Amber/Gold - Futuristik */
+            --bg-light: #f9fafb; /* Latar belakang super ringan */
+        }
+
+        /* Mengganti Font Default dengan Inter dan Set Background */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light); 
+            color: var(--primary-dark);
+            line-height: 1.65;
+            scroll-behavior: smooth;
+        }
+
+        /* Kustomisasi Slider agar transisinya tetap dinamis */
+        .slider-container {
+            height: 550px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            width: 300%; /* 3 Gambar */
+            height: 100%;
+            /* Efek transisi yang lebih halus dan elegan */
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .slider img {
+            width: calc(100% / 3);
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8); /* Redupkan untuk kontras teks */
+        }
+
+        /* Burger menu icon styling */
+        .burger-menu .bar {
+            transition: all 0.3s ease-in-out;
+        }
+        .burger-menu.active .bar:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .burger-menu.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-menu.active .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        /* Nav Mobile Animation */
+        #nav-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Hover link navigation style */
+        .nav-link-hover::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-gold);
+            border-radius: 9999px;
+            transition: width 0.3s ease;
+        }
+        .nav-link-hover:hover::after {
+            width: 100%;
+        }
+
+    </style>
 </head>
 <body>
 
 <!-- TOPBAR / NAVIGATION (Sticky, Deep Indigo) -->
 <header class="sticky top-0 z-50 bg-indigo-700/95 backdrop-blur-md shadow-lg">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-    
-    <!-- Logo & Brand (NAMA LENGKAP) -->
-    <a href="#" class="flex items-center space-x-3">
-      <img src="https://timursuksesbajatama.com/home/assets/images/logo/logo_tsb_80x80.png" alt="LOGO TSB" class="h-10 sm:h-12">
-      <!-- MENGGANTI MENJADI NAMA PERUSAHAAN LENGKAP -->
-      <h1 class="text-base sm:text-xl font-extrabold tracking-tight text-white hidden sm:block">PT. TIMUR SUKSES BAJATAMA</h1>
-      <h1 class="text-lg sm:hidden font-extrabold tracking-tight text-white">PT. TSB</h1>
-    </a>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+        
+        <!-- Logo & Brand (NAMA LENGKAP) -->
+        <a href="#" class="flex items-center space-x-3">
+            <img src="https://timursuksesbajatama.com/home/assets/images/logo/logo_tsb_80x80.png" alt="LOGO TSB" class="h-10 sm:h-12">
+            <!-- MENGGANTI MENJADI NAMA PERUSAHAAN LENGKAP -->
+            <h1 class="text-base sm:text-xl font-extrabold tracking-tight text-white hidden sm:block">PT. TIMUR SUKSES BAJATAMA</h1>
+            <h1 class="text-lg sm:hidden font-extrabold tracking-tight text-white">PT. TSB</h1>
+        </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex space-x-8">
-      <a href="#tentang" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Tentang Kami</a>
-      <a href="#produk" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Produk</a>
-      <a href="#kontak" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Kontak</a>
+        <!-- Desktop Navigation Links - Link "Lokasi" Ditambahkan Kembali -->
+        <nav class="hidden lg:flex space-x-8">
+            <a href="#tentang" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Tentang Kami</a>
+            <a href="#produk" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Produk</a>
+            <a href="#lokasi" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Lokasi</a>
+        </nav>
+        
+        <!-- Burger Menu Button (Mobile) -->
+        <button class="lg:hidden burger-menu flex flex-col p-2" id="burger">
+            <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
+        </button>
+    </div>
+        
+    <!-- Mobile Navigation Menu - Link "Lokasi" Ditambahkan Kembali -->
+    <nav id="nav-menu" class="lg:hidden absolute top-[68px] left-0 w-full bg-indigo-700 shadow-xl flex-col items-center pb-4 opacity-0 -translate-y-5 pointer-events-none">
+        <a href="#tentang" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Tentang Kami</a>
+        <a href="#produk" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Produk</a>
+        <a href="#lokasi" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Lokasi</a>
     </nav>
-    
-    <!-- Burger Menu Button (Mobile) -->
-    <button class="lg:hidden burger-menu flex flex-col p-2" id="burger">
-        <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
-        <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
-        <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
-    </button>
-  </div>
-    
-  <!-- Mobile Navigation Menu (Hidden by Default) -->
-  <nav id="nav-menu" class="lg:hidden absolute top-[68px] left-0 w-full bg-indigo-700 shadow-xl flex-col items-center pb-4 opacity-0 -translate-y-5 pointer-events-none">
-    <a href="#tentang" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Tentang Kami</a>
-    <a href="#produk" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Produk</a>
-    <a href="#kontak" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Kontak</a>
-  </nav>
 </header>
 
 <!-- HERO SLIDER SECTION -->
@@ -160,9 +164,9 @@
     </div>
 </section>
 
-<!-- TENTANG KAMI SECTION (Konten Rata Kiri/Rapi) -->
+<!-- TENTANG KAMI SECTION (REDESIGN ELEGANT FUTURISTIK) -->
 <section id="tentang" class="py-16 sm:py-24 bg-gray-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <!-- Judul Rata Kiri -->
         <h2 class="text-3xl sm:text-4xl font-extrabold mb-10 text-indigo-700 border-l-4 border-yellow-500 pl-4">
             Tentang Kami
@@ -173,33 +177,48 @@
             Kami adalah distributor baja terbaik di Kalimantan Timur. Menunjang perusahaan sebagai rekanan dalam bidang pengadaan material konstruksi, melalui jasa pengiriman handal, harga kompetitif, serta layanan jasa fabrikasi seperti pemotongan, perakitan, dan custom produk sesuai kebutuhan proyek Anda.
         </p>
 
-        <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
-            <!-- Visi Card -->
-            <div class="p-8 bg-indigo-700 rounded-2xl shadow-xl text-white hover:shadow-indigo-700/50 transition duration-300 transform hover:-translate-y-1">
-                <div class="flex items-center mb-4">
-                    <span class="p-3 bg-yellow-400 rounded-full mr-4">
+        <!-- VISI & MISI BLOCKS (MODERN & STRUCTURED) -->
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
+            
+            <!-- Visi Card - Prominent Indigo -->
+            <div class="p-10 rounded-3xl bg-indigo-700 text-white shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border-t-8 border-yellow-500">
+                <div class="flex items-center mb-6">
+                    <span class="p-3 bg-yellow-400 rounded-full mr-4 shadow-lg">
                         <i data-lucide="eye" class="w-6 h-6 text-indigo-900"></i>
                     </span>
-                    <h3 class="text-2xl font-bold text-yellow-400">Visi</h3>
+                    <h3 class="text-3xl font-extrabold text-yellow-400 uppercase tracking-wider">Visi</h3>
                 </div>
-                <p class="text-indigo-200 text-justify">
-                    Menjadi perusahaan terdepan dalam distribusi besi dan jasa fabrikasi konstruksi di Indonesia, yang dikenal karena kualitas, kecepatan, dan kehandalan dalam memenuhi kebutuhan industri dan pembangunan nasional.
+                <p class="text-xl font-light italic leading-relaxed text-indigo-100">
+                    "Menjadi perusahaan terdepan dalam distribusi besi dan jasa fabrikasi konstruksi di Indonesia, yang dikenal karena **kualitas, kecepatan, dan kehandalan** dalam memenuhi kebutuhan industri dan pembangunan nasional."
                 </p>
+                <p class="mt-8 text-sm text-indigo-300">— Visi PT. Timur Sukses Bajatama.</p>
             </div>
-
-            <!-- Misi Card -->
-            <div class="p-8 bg-indigo-700 rounded-2xl shadow-xl text-white hover:shadow-indigo-700/50 transition duration-300 transform hover:-translate-y-1">
-                <div class="flex items-center mb-4">
-                    <span class="p-3 bg-yellow-400 rounded-full mr-4">
-                        <i data-lucide="target" class="w-6 h-6 text-indigo-900"></i>
+            
+            <!-- Misi List - Clean White & Structured -->
+            <div class="p-8 rounded-3xl bg-white shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border-t-8 border-indigo-700">
+                <div class="flex items-center mb-8">
+                    <span class="p-3 bg-indigo-700 rounded-full mr-4 shadow-lg">
+                        <i data-lucide="target" class="w-6 h-6 text-yellow-400"></i>
                     </span>
-                    <h3 class="text-2xl font-bold text-yellow-400">Misi</h3>
+                    <h3 class="text-3xl font-extrabold text-indigo-700 uppercase tracking-wider">Misi</h3>
                 </div>
-                <p class="text-indigo-200 text-justify">
-                    TSB Steel berkomitmen untuk menyediakan material besi dan baja ringan berkualitas tinggi serta layanan fabrikasi presisi sesuai kebutuhan pelanggan. Kami terus mengembangkan sumber daya manusia yang kompeten, memperkuat efisiensi operasional, dan menjaga integritas dalam setiap proses kerja. Dengan menggabungkan kekuatan distribusi dan keahlian fabrikasi, kami hadir sebagai solusi lengkap untuk mendukung proyek-proyek konstruksi, manufaktur, dan kebutuhan custom lainnya.
-                </p>
+                <ol class="space-y-6 list-decimal pl-5 text-gray-700">
+                    <li class="pl-2">
+                        <p class="font-semibold text-lg text-indigo-700">Kualitas & Layanan Presisi.</p>
+                        <p class="text-gray-600 text-sm">Menyediakan material besi dan baja ringan berkualitas tinggi serta layanan fabrikasi presisi sesuai kebutuhan pelanggan.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="font-semibold text-lg text-indigo-700">Pengembangan SDM & Efisiensi.</p>
+                        <p class="text-gray-600 text-sm">Mengembangkan sumber daya manusia yang kompeten dan memperkuat efisiensi operasional.</p>
+                    </li>
+                    <li class="pl-2">
+                        <p class="font-semibold text-lg text-indigo-700">Integritas dan Solusi Terintegrasi.</p>
+                        <p class="text-gray-600 text-sm">Menjaga integritas dalam setiap proses kerja dan hadir sebagai solusi lengkap untuk proyek konstruksi dan manufaktur.</p>
+                    </li>
+                </ol>
             </div>
         </div>
+        
     </div>
 </section>
 
@@ -284,64 +303,84 @@
         <!-- CTA WhatsApp (Tombol Ramping & Text "ORDER NOW") -->
         <div class="text-center mt-16">
             <a href="https://wa.me/6285186068910" class="inline-flex items-center space-x-2 px-8 py-3 bg-green-500 text-white font-extrabold text-base rounded-full shadow-lg shadow-green-500/30 hover:bg-green-600 transition duration-300 transform hover:scale-105" target="_blank">
-                <i data-lucide="whatsapp" class="w-5 h-5"></i>
+                <!-- MENGGANTI ICON LUCIDE KE FONT AWESOME -->
+                <i class="fa-brands fa-whatsapp text-xl"></i>
                 <span>ORDER NOW</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- KONTAK SECTION (Konten Rata Kiri/Rapi) -->
-<section id="kontak" class="py-16 sm:py-24 bg-gray-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+<!-- LOKASI KAMI SECTION (MENGGANTIKAN HUBUNGI KAMI) -->
+<section id="lokasi" class="py-16 sm:py-24 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <!-- Judul Rata Kiri -->
         <h2 class="text-3xl sm:text-4xl font-extrabold mb-12 text-indigo-700 border-l-4 border-yellow-500 pl-4">
-            Hubungi Kami
+            Lokasi Kami
         </h2>
 
-        <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
-            <!-- Kontak Pusat -->
-            <div class="contact-block p-8 bg-white rounded-3xl shadow-xl border-t-8 border-indigo-700">
-                <div class="flex items-start mb-4">
-                    <i data-lucide="building-2" class="w-8 h-8 text-indigo-700 mr-4 mt-1"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold text-indigo-700">Kantor Pusat & Gudang (Samarinda)</h3>
-                    </div>
-                </div>
-                
-                <p class="text-gray-600 mb-4 ml-12">
-                    Kompleks Mahakam Square Blok C-10<br>
-                    Jl. Untung Suropati, Samarinda 75126<br>
-                    Kalimantan Timur
-                </p>
-                
-                <div class="ml-12 space-y-3 text-gray-700 font-semibold">
-                    <p><i data-lucide="phone" class="w-5 h-5 inline-block mr-2 text-yellow-500"></i> +62851 0078 1688</p>
-                    <p><i data-lucide="fax" class="w-5 h-5 inline-block mr-2 text-yellow-500"></i> +62‐541‐275769</p>
-                    <p><i data-lucide="mail" class="w-5 h-5 inline-block mr-2 text-yellow-500"></i> tsbsteelkaltim@gmail.com</p>
-                </div>
-            </div>
+        <!-- BLOK PETA BIRU DIHAPUS SESUAI PERMINTAAN -->
 
-            <!-- Kontak Cabang -->
-            <div class="contact-block p-8 bg-white rounded-3xl shadow-xl border-t-8 border-indigo-700">
-                 <div class="flex items-start mb-4">
-                    <i data-lucide="warehouse" class="w-8 h-8 text-indigo-700 mr-4 mt-1"></i>
-                    <div>
-                        <h3 class="text-2xl font-bold text-indigo-700">Cabang & Gudang (Balikpapan)</h3>
+        <!-- Unified Contact Information Block (Tanpa Card) -->
+        <div class="p-8 sm:p-12 bg-white rounded-xl shadow-2xl shadow-indigo-200/50 border-t-8 border-indigo-700">
+            <h3 class="text-3xl font-extrabold text-indigo-700 mb-8 text-center sm:text-left">Dua Lokasi, Satu Komitmen.</h3>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10">
+                
+                <!-- KANTOR PUSAT (SAMARINDA) -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="building-2" class="w-8 h-8 flex-shrink-0 text-yellow-500 mr-4"></i>
+                        <h4 class="text-xl font-bold text-indigo-800 border-b-2 border-yellow-500 pb-1">Kantor Pusat (Samarinda)</h4>
                     </div>
+                    <ul class="space-y-4 text-gray-700 text-base">
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-1 mr-3 text-indigo-500"></i>
+                            <span class="font-medium">Kompleks Mahakam Square Blok C-10, Jl. Untung Suropati, Samarinda 75126, Kalimantan Timur</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500"></i>
+                            <span class="font-semibold">+62851 0078 1688</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="fax" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500"></i>
+                            <span class="font-semibold">+62‐541‐275769</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="mail" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500"></i>
+                            <span class="font-semibold">tsbsteelkaltim@gmail.com</span>
+                        </li>
+                    </ul>
                 </div>
-                
-                <p class="text-gray-600 mb-4 ml-12">
-                    Kompleks Pergudangan Bizhub 52 Blok F-7<br>
-                    Jl. AMD Projakal, Kariangau, Balikpapan 76127<br>
-                    Kalimantan Timur
-                </p>
-                
-                <div class="ml-12 space-y-3 text-gray-700 font-semibold">
-                    <p><i data-lucide="phone" class="w-5 h-5 inline-block mr-2 text-yellow-500"></i> +62‐542‐8515820</p>
+
+                <!-- CABANG & GUDANG (BALIKPAPAN) -->
+                <div class="border-t lg:border-t-0 lg:border-l border-gray-200 lg:pl-12 pt-10 lg:pt-0">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="warehouse" class="w-8 h-8 flex-shrink-0 text-yellow-500 mr-4"></i>
+                        <h4 class="text-xl font-bold text-indigo-800 border-b-2 border-yellow-500 pb-1">Cabang & Gudang (Balikpapan)</h4>
+                    </div>
+                    <ul class="space-y-4 text-gray-700 text-base">
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-1 mr-3 text-indigo-500"></i>
+                            <span class="font-medium">Kompleks Pergudangan Bizhub 52 Blok F-7, Jl. AMD Projakal, Kariangau, Balikpapan 76127, Kalimantan Timur</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500"></i>
+                            <span class="font-semibold">+62‐542‐8515820</span>
+                        </li>
+                        <!-- Tombol CTA WhatsApp Cepat (Balikpapan) - ICON DITAMBAHKAN -->
+                        <li class="pt-2">
+                            <a href="https://wa.me/6285186068910" class="inline-flex items-center text-base space-x-2 px-6 py-2 bg-green-500 text-white font-bold rounded-full shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-[1.03]">
+                                <!-- MENGGANTI ICON LUCIDE KE FONT AWESOME -->
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Hubungi Balikpapan</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <!-- END Unified Contact Information Block -->
     </div>
 </section>
 
@@ -352,25 +391,26 @@
 
 <script>
     // Inisialisasi Lucide Icons
+    // Perhatikan: Font Awesome tidak memerlukan inisialisasi seperti ini
     lucide.createIcons();
 
     // --- SCRIPT UNTUK SLIDER GAMBAR ---
     const slider = document.getElementById("slider");
     if (slider) {
-      let currentIndex = 0;
-      const totalSlides = slider.children.length;
-      const slideWidth = 100 / totalSlides; 
+        let currentIndex = 0;
+        const totalSlides = slider.children.length;
+        const slideWidth = 100 / totalSlides; 
 
-      if (totalSlides > 1) {
-        // Fungsi untuk menggeser slider
-        const nextSlide = () => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            slider.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-        };
+        if (totalSlides > 1) {
+            // Fungsi untuk menggeser slider
+            const nextSlide = () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                slider.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+            };
 
-        // Otomatis geser setiap 5 detik
-        setInterval(nextSlide, 5000); 
-      }
+            // Otomatis geser setiap 5 detik
+            setInterval(nextSlide, 5000); 
+        }
     }
 
     // --- SCRIPT UNTUK BURGER MENU ---
@@ -400,15 +440,13 @@
     }
 
     if (burgerMenu && navMenu) {
-      burgerMenu.addEventListener('click', toggleMenu);
-      // Tambahkan event listener ke semua link navigasi di mobile untuk menutup menu setelah diklik
-      navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
+        burgerMenu.addEventListener('click', toggleMenu);
+        // Tambahkan event listener ke semua link navigasi di mobile untuk menutup menu setelah diklik
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
     }
 </script>
 
 </body>
 </html>
-
- 
