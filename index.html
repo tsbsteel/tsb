@@ -4,33 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT. Timur Sukses Bajatama - Distributor Besi & Fabrikasi Logam</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter Font (Elegan dan Modern) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Load Lucide Icons (TETAP DIPERLUKAN UNTUK ICON LAIN) -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Load Font Awesome Icons (BARU DITAMBAHKAN KHUSUS UNTUK ICON WHATSAPP) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/cd8kOODxZkNsKxJhYhJv/5g5t50y5jHhT+r8bF/n9QY5pX20P5x8+D+v0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/cd8kOODxZkNsKxJhYhJv/5g5t50y5jHhT+r8bF/n9QY5pX20P5x8+D+v0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* Konfigurasi Kustom Tailwind */
+        /* Konfigurasi Kustom Tailwind & Dark Mode Colors */
         :root {
-            --primary-dark: #1f2937; /* Warna teks utama */
-            --primary-blue: #312e81; /* Deep Indigo - Elegan */
-            --accent-gold: #fbbf24; /* Amber/Gold - Futuristik */
-            --bg-light: #f9fafb; /* Latar belakang super ringan */
+            /* Light Mode */
+            --primary-color: #312e81; /* Deep Indigo */
+            --accent-color: #fbbf24; /* Amber/Gold */
+            --bg-body: #f9fafb; /* Latar belakang super ringan */
+            --text-main: #1f2937; /* Warna teks utama */
+        }
+        
+        /* Dark Mode Configuration (Aplikasi ke class 'dark') */
+        .dark {
+            --primary-color: #6366f1; /* Indigo terang di Dark Mode */
+            --accent-color: #fcd34d; /* Amber terang */
+            --bg-body: #111827; /* Dark Slate Blue/Gray */
+            --text-main: #e5e7eb; /* Warna teks ringan */
         }
 
         /* Mengganti Font Default dengan Inter dan Set Background */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light); 
-            color: var(--primary-dark);
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.65;
             scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Transisi untuk Dark Mode */
         }
 
         /* Kustomisasi Slider agar transisinya tetap dinamis */
@@ -52,10 +58,32 @@
             width: calc(100% / 3);
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.8); /* Redupkan untuk kontras teks */
+            filter: brightness(0.7); /* Redupkan untuk kontras teks */
         }
 
-        /* Burger menu icon styling */
+        /* Efek Hover Futuristik pada Nav Link */
+        .nav-link-futuristic {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .nav-link-futuristic::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 50%; /* Mulai dari tengah */
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+            border-radius: 9999px;
+            transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efek memantul */
+        }
+        .nav-link-futuristic:hover::after {
+            width: 100%;
+        }
+
+        /* Burger menu styling (sama seperti sebelumnya, tetap futuristik) */
         .burger-menu .bar {
             transition: all 0.3s ease-in-out;
         }
@@ -68,68 +96,45 @@
         .burger-menu.active .bar:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
-        
-        /* Nav Mobile Animation */
-        #nav-menu {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        
-        /* Hover link navigation style */
-        .nav-link-hover::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-gold);
-            border-radius: 9999px;
-            transition: width 0.3s ease;
-        }
-        .nav-link-hover:hover::after {
-            width: 100%;
-        }
 
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-<!-- TOPBAR / NAVIGATION (Sticky, Deep Indigo) -->
-<header class="sticky top-0 z-50 bg-indigo-700/95 backdrop-blur-md shadow-lg">
+<button id="theme-toggle" class="fixed bottom-4 right-4 z-[9999] p-3 rounded-full bg-gray-800 text-yellow-400 dark:bg-gray-100 dark:text-indigo-700 shadow-xl transition-all duration-300 hover:scale-110">
+    <i data-lucide="sun" id="theme-toggle-light-icon" class="w-6 h-6"></i>
+    <i data-lucide="moon" id="theme-toggle-dark-icon" class="w-6 h-6 hidden"></i>
+</button>
+
+
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-xl dark:shadow-indigo-900/30 border-b border-gray-200 dark:border-indigo-900 transition-colors duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
         
-        <!-- Logo & Brand (NAMA LENGKAP) -->
-        <a href="#" class="flex items-center space-x-3">
-            <img src="https://timursuksesbajatama.com/home/assets/images/logo/logo_tsb_80x80.png" alt="LOGO TSB" class="h-10 sm:h-12">
-            <!-- MENGGANTI MENJADI NAMA PERUSAHAAN LENGKAP -->
-            <h1 class="text-base sm:text-xl font-extrabold tracking-tight text-white hidden sm:block">PT. TIMUR SUKSES BAJATAMA</h1>
-            <h1 class="text-lg sm:hidden font-extrabold tracking-tight text-white">PT. TSB</h1>
+        <a href="#" class="flex items-center space-x-3 group">
+            <img src="https://timursuksesbajatama.com/home/assets/images/logo/logo_tsb_80x80.png" alt="LOGO TSB" class="h-10 sm:h-12 transform group-hover:rotate-6 transition-transform duration-500">
+            <h1 class="text-lg sm:text-2xl font-extrabold tracking-tight text-indigo-700 dark:text-white transition-colors duration-300">PT. <span class="text-yellow-500 dark:text-yellow-400">TIMUR SUKSES</span> BAJATAMA</h1>
         </a>
 
-        <!-- Desktop Navigation Links - Link "Lokasi" Ditambahkan Kembali -->
         <nav class="hidden lg:flex space-x-8">
-            <a href="#tentang" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Tentang Kami</a>
-            <a href="#produk" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Produk</a>
-            <a href="#lokasi" class="text-gray-200 hover:text-yellow-400 transition duration-300 font-semibold relative py-2 nav-link-hover">Lokasi</a>
+            <a href="#tentang" class="text-gray-700 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-yellow-400 transition duration-300 font-semibold nav-link-futuristic">Tentang Kami</a>
+            <a href="#produk" class="text-gray-700 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-yellow-400 transition duration-300 font-semibold nav-link-futuristic">Produk</a>
+            <a href="#lokasi" class="text-gray-700 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-yellow-400 transition duration-300 font-semibold nav-link-futuristic">Lokasi</a>
         </nav>
         
-        <!-- Burger Menu Button (Mobile) -->
         <button class="lg:hidden burger-menu flex flex-col p-2" id="burger">
-            <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
-            <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
-            <span class="bar w-6 h-0.5 bg-white rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-indigo-700 dark:bg-white rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-indigo-700 dark:bg-white rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-indigo-700 dark:bg-white rounded-full my-1"></span>
         </button>
     </div>
         
-    <!-- Mobile Navigation Menu - Link "Lokasi" Ditambahkan Kembali -->
-    <nav id="nav-menu" class="lg:hidden absolute top-[68px] left-0 w-full bg-indigo-700 shadow-xl flex-col items-center pb-4 opacity-0 -translate-y-5 pointer-events-none">
-        <a href="#tentang" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Tentang Kami</a>
-        <a href="#produk" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Produk</a>
-        <a href="#lokasi" class="block py-3 px-4 text-center text-white hover:bg-indigo-600 transition duration-200 w-full" onclick="closeMenu()">Lokasi</a>
+    <nav id="nav-menu" class="lg:hidden absolute top-[68px] left-0 w-full bg-white dark:bg-gray-800 shadow-xl flex-col items-center pb-4 opacity-0 -translate-y-5 pointer-events-none transition-all duration-300">
+        <a href="#tentang" class="block py-3 px-4 text-center text-indigo-700 dark:text-white hover:bg-gray-100 dark:hover:bg-indigo-700 transition duration-200 w-full font-medium" onclick="closeMenu()">Tentang Kami</a>
+        <a href="#produk" class="block py-3 px-4 text-center text-indigo-700 dark:text-white hover:bg-gray-100 dark:hover:bg-indigo-700 transition duration-200 w-full font-medium" onclick="closeMenu()">Produk</a>
+        <a href="#lokasi" class="block py-3 px-4 text-center text-indigo-700 dark:text-white hover:bg-gray-100 dark:hover:bg-indigo-700 transition duration-200 w-full font-medium" onclick="closeMenu()">Lokasi</a>
     </nav>
 </header>
 
-<!-- HERO SLIDER SECTION -->
 <div class="slider-container">
     <div class="slider" id="slider">
         <img src="https://www.steelwarehouse.com/assets/images/content/223.jpg" alt="Gudang Besi dan Baja">
@@ -137,83 +142,86 @@
         <img src="https://paultan.org/image/2023/06/SUKE-Phase-2-Official-Pics-6-1200x675.jpg" alt="Struktur Jembatan Baja">
     </div>
     
-    <!-- Overlay dan Teks Utama (RATA TENGAH) -->
-    <div class="absolute inset-0 bg-indigo-900/40 flex flex-col items-center justify-center text-center p-6">
-        <div class="max-w-4xl p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-2xl">
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
+    <div class="absolute inset-0 bg-gray-900/60 flex flex-col items-center justify-center text-center p-6">
+        <div class="max-w-4xl p-8 rounded-2xl border-4 border-yellow-400/50 shadow-2xl backdrop-blur-md bg-black/30 animate-pulse-slow">
+            <p class="text-xl sm:text-3xl font-extrabold text-yellow-400 mb-2 tracking-widest uppercase">
+                TSB | Kalimantan's Steel Partner
+            </p>
+            <h1 class="text-5xl sm:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
                 INOVASI BAJA <span class="text-yellow-400">KALIMANTAN</span>
             </h1>
-            <p class="text-xl sm:text-2xl text-gray-100 font-light max-w-3xl mx-auto">
+            <p class="text-lg sm:text-xl text-gray-200 font-light max-w-3xl mx-auto">
                 Distributor Material Besi dan Fabrikasi Logam terbaik di Kalimantan Timur.
             </p>
         </div>
-        <!-- Tombol Ramping -->
-        <a href="#produk" class="mt-10 px-6 py-3 bg-yellow-500 text-indigo-900 font-bold rounded-full shadow-md hover:bg-yellow-400 transition duration-300 transform hover:scale-105 inline-flex items-center space-x-2">
-            <i data-lucide="chevrons-down" class="w-5 h-5"></i>
+        <a href="#produk" class="mt-10 px-8 py-3 bg-yellow-500 text-gray-900 font-extrabold text-lg rounded-full shadow-lg shadow-yellow-500/50 transition duration-300 transform hover:scale-105 hover:shadow-yellow-400/80 inline-flex items-center space-x-2 border-2 border-yellow-600">
+            <i data-lucide="chevrons-down" class="w-6 h-6"></i>
             <span>Lihat Produk</span>
         </a>
     </div>
 </div>
 
-<!-- INTRO SECTION (Menyambung ke Hero) -->
-<section id="intro" class="relative z-10 bg-white p-8 sm:p-12 -mt-10 rounded-t-3xl shadow-2xl shadow-gray-400/30">
+<section id="intro" class="relative z-10 bg-white dark:bg-gray-800 p-8 sm:p-12 -mt-10 rounded-t-3xl shadow-2xl dark:shadow-none border-t-8 border-yellow-500 dark:border-indigo-600 transition-colors duration-300">
     <div class="container mx-auto max-w-5xl">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center text-indigo-700">
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-indigo-700 dark:text-white transition-colors duration-300">
             Kualitas Bersertifikasi, Layanan Fabrikasi Presisi.
         </h2>
     </div>
 </section>
 
-<!-- TENTANG KAMI SECTION (REDESIGN ELEGANT FUTURISTIK) -->
-<section id="tentang" class="py-16 sm:py-24 bg-gray-50">
+<section id="tentang" class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        <!-- Judul Rata Kiri -->
-        <h2 class="text-3xl sm:text-4xl font-extrabold mb-10 text-indigo-700 border-l-4 border-yellow-500 pl-4">
-            Tentang Kami
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-10 text-indigo-700 dark:text-white border-l-4 border-yellow-500 pl-4">
+            Tentang Kami <span class="text-lg text-gray-500 dark:text-gray-400 font-normal">| Our Foundation</span>
         </h2>
         
-        <!-- Paragraf Rata Kiri -->
-        <p class="text-gray-600 mb-12 text-lg">
+        <p class="text-gray-600 dark:text-gray-300 mb-12 text-lg leading-relaxed transition-colors duration-300">
             Kami adalah distributor baja terbaik di Kalimantan Timur. Menunjang perusahaan sebagai rekanan dalam bidang pengadaan material konstruksi, melalui jasa pengiriman handal, harga kompetitif, serta layanan jasa fabrikasi seperti pemotongan, perakitan, dan custom produk sesuai kebutuhan proyek Anda.
         </p>
 
-        <!-- VISI & MISI BLOCKS (MODERN & STRUCTURED) -->
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
             
-            <!-- Visi Card - Prominent Indigo -->
-            <div class="p-10 rounded-3xl bg-indigo-700 text-white shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border-t-8 border-yellow-500">
+            <div class="p-10 rounded-3xl bg-indigo-700 dark:bg-indigo-900 text-white shadow-xl dark:shadow-2xl dark:shadow-indigo-700/30 transition duration-300 transform hover:scale-[1.02] border-t-8 border-yellow-500 dark:border-yellow-400">
                 <div class="flex items-center mb-6">
                     <span class="p-3 bg-yellow-400 rounded-full mr-4 shadow-lg">
                         <i data-lucide="eye" class="w-6 h-6 text-indigo-900"></i>
                     </span>
                     <h3 class="text-3xl font-extrabold text-yellow-400 uppercase tracking-wider">Visi</h3>
                 </div>
-                <p class="text-xl font-light italic leading-relaxed text-indigo-100">
+                <p class="text-xl font-light italic leading-relaxed text-indigo-100 dark:text-gray-200">
                     "Menjadi perusahaan terdepan dalam distribusi besi dan jasa fabrikasi konstruksi di Indonesia, yang dikenal karena **kualitas, kecepatan, dan kehandalan** dalam memenuhi kebutuhan industri dan pembangunan nasional."
                 </p>
-                <p class="mt-8 text-sm text-indigo-300">— Visi PT. Timur Sukses Bajatama.</p>
+                <p class="mt-8 text-sm text-indigo-300 dark:text-indigo-400">— Visi PT. Timur Sukses Bajatama.</p>
             </div>
             
-            <!-- Misi List - Clean White & Structured -->
-            <div class="p-8 rounded-3xl bg-white shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border-t-8 border-indigo-700">
+            <div class="p-8 rounded-3xl bg-white dark:bg-gray-800 shadow-xl dark:shadow-2xl dark:shadow-yellow-700/30 transition duration-300 transform hover:scale-[1.02] border-t-8 border-indigo-700 dark:border-yellow-400">
                 <div class="flex items-center mb-8">
-                    <span class="p-3 bg-indigo-700 rounded-full mr-4 shadow-lg">
-                        <i data-lucide="target" class="w-6 h-6 text-yellow-400"></i>
+                    <span class="p-3 bg-indigo-700 dark:bg-yellow-400 rounded-full mr-4 shadow-lg">
+                        <i data-lucide="target" class="w-6 h-6 text-yellow-400 dark:text-indigo-900"></i>
                     </span>
-                    <h3 class="text-3xl font-extrabold text-indigo-700 uppercase tracking-wider">Misi</h3>
+                    <h3 class="text-3xl font-extrabold text-indigo-700 dark:text-white uppercase tracking-wider">Misi</h3>
                 </div>
-                <ol class="space-y-6 list-decimal pl-5 text-gray-700">
-                    <li class="pl-2">
-                        <p class="font-semibold text-lg text-indigo-700">Kualitas & Layanan Presisi.</p>
-                        <p class="text-gray-600 text-sm">Menyediakan material besi dan baja ringan berkualitas tinggi serta layanan fabrikasi presisi sesuai kebutuhan pelanggan.</p>
+                <ol class="space-y-6 list-none pl-0 text-gray-700 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <span class="text-xl font-extrabold text-yellow-500 dark:text-yellow-400 mr-3 mt-1">1.</span>
+                        <div>
+                            <p class="font-semibold text-lg text-indigo-700 dark:text-white">Kualitas & Layanan Presisi.</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Menyediakan material besi dan baja ringan berkualitas tinggi serta layanan fabrikasi presisi sesuai kebutuhan pelanggan.</p>
+                        </div>
                     </li>
-                    <li class="pl-2">
-                        <p class="font-semibold text-lg text-indigo-700">Pengembangan SDM & Efisiensi.</p>
-                        <p class="text-gray-600 text-sm">Mengembangkan sumber daya manusia yang kompeten dan memperkuat efisiensi operasional.</p>
+                    <li class="flex items-start">
+                        <span class="text-xl font-extrabold text-yellow-500 dark:text-yellow-400 mr-3 mt-1">2.</span>
+                        <div>
+                            <p class="font-semibold text-lg text-indigo-700 dark:text-white">Pengembangan SDM & Efisiensi.</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Mengembangkan sumber daya manusia yang kompeten dan memperkuat efisiensi operasional.</p>
+                        </div>
                     </li>
-                    <li class="pl-2">
-                        <p class="font-semibold text-lg text-indigo-700">Integritas dan Solusi Terintegrasi.</p>
-                        <p class="text-gray-600 text-sm">Menjaga integritas dalam setiap proses kerja dan hadir sebagai solusi lengkap untuk proyek konstruksi dan manufaktur.</p>
+                    <li class="flex items-start">
+                        <span class="text-xl font-extrabold text-yellow-500 dark:text-yellow-400 mr-3 mt-1">3.</span>
+                        <div>
+                            <p class="font-semibold text-lg text-indigo-700 dark:text-white">Integritas dan Solusi Terintegrasi.</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Menjaga integritas dalam setiap proses kerja dan hadir sebagai solusi lengkap untuk proyek konstruksi dan manufaktur.</p>
+                        </div>
                     </li>
                 </ol>
             </div>
@@ -222,156 +230,141 @@
     </div>
 </section>
 
-<!-- PRODUK KAMI SECTION -->
-<section id="produk" class="py-16 sm:py-24 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-        <!-- Judul Rata Kiri -->
-        <h2 class="text-3xl sm:text-4xl font-extrabold mb-12 text-indigo-700 border-l-4 border-yellow-500 pl-4">
-            Produk Kami
+<section id="produk" class="py-16 sm:py-24 bg-white dark:bg-gray-800 transition-colors duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-12 text-indigo-700 dark:text-white border-l-4 border-yellow-500 pl-4">
+            Produk Kami <span class="text-lg text-gray-500 dark:text-gray-400 font-normal">| Core Materials</span>
         </h2>
 
-        <!-- Product Grid (Card design yang clean dan elevated) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            <!-- Product Item Template -->
-            <div class="product-item bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:ring-4 hover:ring-yellow-300/50 transition-all duration-300 transform hover:-translate-y-1">
-                <img src="https://www.propertygeek.in/wp-content/uploads/2023/02/Unit-Weight-of-Steel.jpg" alt="Besi Beton Polos dan Ulir" class="w-full h-48 object-cover object-center">
+            <div class="product-item bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-none border-2 border-gray-100 dark:border-indigo-900 hover:ring-4 hover:ring-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                <img src="https://www.propertygeek.in/wp-content/uploads/2023/02/Unit-Weight-of-Steel.jpg" alt="Besi Beton Polos dan Ulir" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 <div class="p-6 flex flex-col h-full">
-                    <h4 class="text-xl font-bold text-indigo-700 mb-2">Besi Beton Polos & Ulir</h4>
-                    <p class="text-gray-500 text-sm flex-grow">Digunakan sebagai tulangan utama dalam konstruksi beton bertulang.</p>
+                    <h4 class="text-xl font-bold text-indigo-700 dark:text-white mb-2">Besi Beton Polos & Ulir</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm flex-grow">Digunakan sebagai tulangan utama dalam konstruksi beton bertulang.</p>
                 </div>
             </div>
             
-            <div class="product-item bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:ring-4 hover:ring-yellow-300/50 transition-all duration-300 transform hover:-translate-y-1">
-                <img src="https://www.chinasteelcompany.com/Content/uploads/2023982518/20230904101523c5df9593324f4759bc3d58f30ed068a8.jpg" alt="Plat Bordes dan Plat Hitam" class="w-full h-48 object-cover object-center">
+            <div class="product-item bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-none border-2 border-gray-100 dark:border-indigo-900 hover:ring-4 hover:ring-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                <img src="https://www.chinasteelcompany.com/Content/uploads/2023982518/20230904101523c5df9593324f4759bc3d58f30ed068a8.jpg" alt="Plat Bordes dan Plat Hitam" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 <div class="p-6 flex flex-col h-full">
-                    <h4 class="text-xl font-bold text-indigo-700 mb-2">Plat Bordes & Plat Hitam</h4>
-                    <p class="text-gray-500 text-sm flex-grow">Material pelat untuk lantai, tangga, atau pelindung dengan permukaan berpola.</p>
+                    <h4 class="text-xl font-bold text-indigo-700 dark:text-white mb-2">Plat Bordes & Plat Hitam</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm flex-grow">Material pelat untuk lantai, tangga, atau pelindung dengan permukaan berpola.</p>
                 </div>
             </div>
 
-            <div class="product-item bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:ring-4 hover:ring-yellow-300/50 transition-all duration-300 transform hover:-translate-y-1">
-                <img src="https://dutabaja.com/assets/products/unp-inp.jpg" alt="Besi Hollow dan UNP" class="w-full h-48 object-cover object-center">
+            <div class="product-item bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-none border-2 border-gray-100 dark:border-indigo-900 hover:ring-4 hover:ring-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                <img src="https://dutabaja.com/assets/products/unp-inp.jpg" alt="Besi Hollow dan UNP" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 <div class="p-6 flex flex-col h-full">
-                    <h4 class="text-xl font-bold text-indigo-700 mb-2">Hollow & UNP</h4>
-                    <p class="text-gray-500 text-sm flex-grow">Baja berbentuk kotak dan kanal, sering dipakai pada rangka ringan dan bangunan.</p>
+                    <h4 class="text-xl font-bold text-indigo-700 dark:text-white mb-2">Hollow & UNP</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm flex-grow">Baja berbentuk kotak dan kanal, sering dipakai pada rangka ringan dan bangunan.</p>
                 </div>
             </div>
 
-            <div class="product-item bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:ring-4 hover:ring-yellow-300/50 transition-all duration-300 transform hover:-translate-y-1">
-                <img src="https://media.karousell.com/media/photos/products/2019/12/05/i_beam_ibeam_hbeam_h_beam_1575505341_dfea5f94.jpg" alt="WF Beam dan I Beam" class="w-full h-48 object-cover object-center">
+            <div class="product-item bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-none border-2 border-gray-100 dark:border-indigo-900 hover:ring-4 hover:ring-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                <img src="https://media.karousell.com/media/photos/products/2019/12/05/i_beam_ibeam_hbeam_h_beam_1575505341_dfea5f94.jpg" alt="WF Beam dan I Beam" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 <div class="p-6 flex flex-col h-full">
-                    <h4 class="text-xl font-bold text-indigo-700 mb-2">WF Beam & I Beam</h4>
-                    <p class="text-gray-500 text-sm flex-grow">Struktur baja utama pada konstruksi berat seperti gedung dan jembatan.</p>
+                    <h4 class="text-xl font-bold text-indigo-700 dark:text-white mb-2">WF Beam & I Beam</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm flex-grow">Struktur baja utama pada konstruksi berat seperti gedung dan jembatan.</p>
                 </div>
             </div>
 
-            <div class="product-item bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:ring-4 hover:ring-yellow-300/50 transition-all duration-300 transform hover:-translate-y-1">
-                <img src="https://s.alicdn.com/@sc04/kf/Hada3236b2de0413c940fe2f2b26ca951p.jpg" alt="Spandek dan Zincalume" class="w-full h-48 object-cover object-center">
+            <div class="product-item bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-none border-2 border-gray-100 dark:border-indigo-900 hover:ring-4 hover:ring-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                <img src="https://s.alicdn.com/@sc04/kf/Hada3236b2de0413c940fe2f2b26ca951p.jpg" alt="Spandek dan Zincalume" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 <div class="p-6 flex flex-col h-full">
-                    <h4 class="text-xl font-bold text-indigo-700 mb-2">Spandek & Zincalume</h4>
-                    <p class="text-gray-500 text-sm flex-grow">Penutup atap dan dinding tahan karat dengan bentuk gelombang modern.</p>
+                    <h4 class="text-xl font-bold text-indigo-700 dark:text-white mb-2">Spandek & Zincalume</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm flex-grow">Penutup atap dan dinding tahan karat dengan bentuk gelombang modern.</p>
                 </div>
             </div>
 
-            <div class="product-item bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:ring-4 hover:ring-yellow-300/50 transition-all duration-300 transform hover:-translate-y-1">
-                <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/295723573/ES/EN/MJ/161461778/ms-round-tube-500x500.jpg" alt="Pipa Besi dan Galvanis" class="w-full h-48 object-cover object-center">
+            <div class="product-item bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-none border-2 border-gray-100 dark:border-indigo-900 hover:ring-4 hover:ring-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/295723573/ES/EN/MJ/161461778/ms-round-tube-500x500.jpg" alt="Pipa Besi dan Galvanis" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 <div class="p-6 flex flex-col h-full">
-                    <h4 class="text-xl font-bold text-indigo-700 mb-2">Pipa Besi & Galvanis</h4>
-                    <p class="text-gray-500 text-sm flex-grow">Pipa kuat untuk saluran air, konstruksi pagar, dan bangunan.</p>
+                    <h4 class="text-xl font-bold text-indigo-700 dark:text-white mb-2">Pipa Besi & Galvanis</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm flex-grow">Pipa kuat untuk saluran air, konstruksi pagar, dan bangunan.</p>
                 </div>
             </div>
             
-            <div class="product-item bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:ring-4 hover:ring-yellow-300/50 transition-all duration-300 transform hover:-translate-y-1">
-                <img src="https://image.made-in-china.com/2f0j00hMrlQEiqRoRa/Leadwalking-Stainless-Steel-304-Wave-Type-Wire-Mesh-Crimped-Wire-Barbecue-Grill-Mesh-Fence-Panel.jpg" alt="Wiremesh dan Besi Siku" class="w-full h-48 object-cover object-center">
+            <div class="product-item bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-none border-2 border-gray-100 dark:border-indigo-900 hover:ring-4 hover:ring-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                <img src="https://image.made-in-china.com/2f0j00hMrlQEiqRoRa/Leadwalking-Stainless-Steel-304-Wave-Type-Wire-Mesh-Crimped-Wire-Barbecue-Grill-Mesh-Fence-Panel.jpg" alt="Wiremesh dan Besi Siku" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 <div class="p-6 flex flex-col h-full">
-                    <h4 class="text-xl font-bold text-indigo-700 mb-2">Wiremesh</h4>
-                    <p class="text-gray-500 text-sm flex-grow">Jaring besi untuk tulangan beton pada lantai cor dan jalan.</p>
+                    <h4 class="text-xl font-bold text-indigo-700 dark:text-white mb-2">Wiremesh</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm flex-grow">Jaring besi untuk tulangan beton pada lantai cor dan jalan.</p>
                 </div>
             </div>
 
-            <div class="product-item bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:ring-4 hover:ring-yellow-300/50 transition-all duration-300 transform hover:-translate-y-1">
-                <img src="https://www.galvanised-steels.com/photo/pc117733745-5m_ppgi_galvanized_angle_steel_corrosion_resistance_astm_sgcc.jpg" alt="CNP dan Reng Galvalum" class="w-full h-48 object-cover object-center">
+            <div class="product-item bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-none border-2 border-gray-100 dark:border-indigo-900 hover:ring-4 hover:ring-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                <img src="https://www.galvanised-steels.com/photo/pc117733745-5m_ppgi_galvanized_angle_steel_corrosion_resistance_astm_sgcc.jpg" alt="CNP dan Reng Galvalum" class="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 <div class="p-6 flex flex-col h-full">
-                    <h4 class="text-xl font-bold text-indigo-700 mb-2">Besi Siku</h4>
-                    <p class="text-gray-500 text-sm flex-grow">Digunakan untuk rangka, penyangga, rak, meja, dan sambungan struktur karena stabil.</p>
+                    <h4 class="text-xl font-bold text-indigo-700 dark:text-white mb-2">Besi Siku</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm flex-grow">Digunakan untuk rangka, penyangga, rak, meja, dan sambungan struktur karena stabil.</p>
                 </div>
             </div>
 
         </div>
 
-        <!-- CTA WhatsApp (Tombol Ramping & Text "ORDER NOW") -->
         <div class="text-center mt-16">
-            <a href="https://wa.me/6285186068910" class="inline-flex items-center space-x-2 px-8 py-3 bg-green-500 text-white font-extrabold text-base rounded-full shadow-lg shadow-green-500/30 hover:bg-green-600 transition duration-300 transform hover:scale-105" target="_blank">
-                <!-- MENGGANTI ICON LUCIDE KE FONT AWESOME -->
-                <i class="fa-brands fa-whatsapp text-xl"></i>
+            <a href="https://wa.me/6285186068910" class="inline-flex items-center space-x-3 px-10 py-4 bg-green-600 text-white font-extrabold text-lg rounded-full shadow-lg shadow-green-600/50 hover:bg-green-500 transition duration-300 transform hover:scale-[1.05] border-2 border-green-700 dark:border-green-400 dark:shadow-green-400/30">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
                 <span>ORDER NOW</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- LOKASI KAMI SECTION (MENGGANTIKAN HUBUNGI KAMI) -->
-<section id="lokasi" class="py-16 sm:py-24 bg-gray-50">
+<section id="lokasi" class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        <!-- Judul Rata Kiri -->
-        <h2 class="text-3xl sm:text-4xl font-extrabold mb-12 text-indigo-700 border-l-4 border-yellow-500 pl-4">
-            Lokasi Kami
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-12 text-indigo-700 dark:text-white border-l-4 border-yellow-500 pl-4">
+            Lokasi Kami <span class="text-lg text-gray-500 dark:text-gray-400 font-normal">| Coverage Area</span>
         </h2>
 
-        <!-- BLOK PETA BIRU DIHAPUS SESUAI PERMINTAAN -->
-
-        <!-- Unified Contact Information Block (Tanpa Card) -->
-        <div class="p-8 sm:p-12 bg-white rounded-xl shadow-2xl shadow-indigo-200/50 border-t-8 border-indigo-700">
-            <h3 class="text-3xl font-extrabold text-indigo-700 mb-8 text-center sm:text-left">Dua Lokasi, Satu Komitmen.</h3>
+        <div class="p-8 sm:p-12 bg-white dark:bg-gray-800 rounded-xl shadow-2xl dark:shadow-none border-t-8 border-indigo-700 dark:border-yellow-500 transition-colors duration-300">
+            <h3 class="text-3xl font-extrabold text-indigo-700 dark:text-white mb-10 text-center sm:text-left">Dua Lokasi, Satu Komitmen.</h3>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10">
                 
-                <!-- KANTOR PUSAT (SAMARINDA) -->
                 <div>
-                    <div class="flex items-center mb-4">
-                        <i data-lucide="building-2" class="w-8 h-8 flex-shrink-0 text-yellow-500 mr-4"></i>
-                        <h4 class="text-xl font-bold text-indigo-800 border-b-2 border-yellow-500 pb-1">Kantor Pusat (Samarinda)</h4>
+                    <div class="flex items-center mb-6">
+                        <i data-lucide="building-2" class="w-8 h-8 flex-shrink-0 text-yellow-500 mr-4 p-1 rounded-md border-2 border-yellow-500"></i>
+                        <h4 class="text-2xl font-bold text-indigo-800 dark:text-gray-100">Kantor Pusat (Samarinda)</h4>
                     </div>
-                    <ul class="space-y-4 text-gray-700 text-base">
-                        <li class="flex items-start">
-                            <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-1 mr-3 text-indigo-500"></i>
+                    <ul class="space-y-5 text-gray-700 dark:text-gray-300 text-base">
+                        <li class="flex items-start group">
+                            <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-1 mr-3 text-indigo-500 group-hover:text-yellow-500 transition"></i>
                             <span class="font-medium">Kompleks Mahakam Square Blok C-10, Jl. Untung Suropati, Samarinda 75126, Kalimantan Timur</span>
                         </li>
-                        <li class="flex items-center">
-                            <i data-lucide="phone" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500"></i>
+                        <li class="flex items-center group">
+                            <i data-lucide="phone" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500 group-hover:text-yellow-500 transition"></i>
                             <span class="font-semibold">+62851 0078 1688</span>
                         </li>
-                        <li class="flex items-center">
-                            <i data-lucide="fax" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500"></i>
+                        <li class="flex items-center group">
+                            <i data-lucide="fax" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500 group-hover:text-yellow-500 transition"></i>
                             <span class="font-semibold">+62‐541‐275769</span>
                         </li>
-                        <li class="flex items-center">
-                            <i data-lucide="mail" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500"></i>
+                        <li class="flex items-center group">
+                            <i data-lucide="mail" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500 group-hover:text-yellow-500 transition"></i>
                             <span class="font-semibold">tsbsteelkaltim@gmail.com</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- CABANG & GUDANG (BALIKPAPAN) -->
-                <div class="border-t lg:border-t-0 lg:border-l border-gray-200 lg:pl-12 pt-10 lg:pt-0">
-                    <div class="flex items-center mb-4">
-                        <i data-lucide="warehouse" class="w-8 h-8 flex-shrink-0 text-yellow-500 mr-4"></i>
-                        <h4 class="text-xl font-bold text-indigo-800 border-b-2 border-yellow-500 pb-1">Cabang & Gudang (Balikpapan)</h4>
+                <div class="border-t lg:border-t-0 lg:border-l border-gray-200 dark:border-gray-700 lg:pl-12 pt-10 lg:pt-0">
+                    <div class="flex items-center mb-6">
+                        <i data-lucide="warehouse" class="w-8 h-8 flex-shrink-0 text-yellow-500 mr-4 p-1 rounded-md border-2 border-yellow-500"></i>
+                        <h4 class="text-2xl font-bold text-indigo-800 dark:text-gray-100">Cabang & Gudang (Balikpapan)</h4>
                     </div>
-                    <ul class="space-y-4 text-gray-700 text-base">
-                        <li class="flex items-start">
-                            <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-1 mr-3 text-indigo-500"></i>
+                    <ul class="space-y-5 text-gray-700 dark:text-gray-300 text-base">
+                        <li class="flex items-start group">
+                            <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-1 mr-3 text-indigo-500 group-hover:text-yellow-500 transition"></i>
                             <span class="font-medium">Kompleks Pergudangan Bizhub 52 Blok F-7, Jl. AMD Projakal, Kariangau, Balikpapan 76127, Kalimantan Timur</span>
                         </li>
-                        <li class="flex items-center">
-                            <i data-lucide="phone" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500"></i>
+                        <li class="flex items-center group">
+                            <i data-lucide="phone" class="w-5 h-5 flex-shrink-0 mr-3 text-indigo-500 group-hover:text-yellow-500 transition"></i>
                             <span class="font-semibold">+62‐542‐8515820</span>
                         </li>
-                        <!-- Tombol CTA WhatsApp Cepat (Balikpapan) - ICON DITAMBAHKAN -->
-                        <li class="pt-2">
-                            <a href="https://wa.me/6285186068910" class="inline-flex items-center text-base space-x-2 px-6 py-2 bg-green-500 text-white font-bold rounded-full shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-[1.03]">
-                                <!-- MENGGANTI ICON LUCIDE KE FONT AWESOME -->
+                        <li class="pt-4">
+                            <a href="https://wa.me/6285186068910" class="inline-flex items-center text-base space-x-2 px-6 py-2 bg-green-600 text-white font-bold rounded-full shadow-md hover:bg-green-500 transition duration-300 transform hover:scale-[1.03]">
                                 <i class="fa-brands fa-whatsapp text-lg"></i>
                                 <span>Hubungi Balikpapan</span>
                             </a>
@@ -380,18 +373,15 @@
                 </div>
             </div>
         </div>
-        <!-- END Unified Contact Information Block -->
-    </div>
+        </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-indigo-700 text-center py-6 border-t border-indigo-600">
-    <p class="text-indigo-200 text-sm">&copy; 2025 PT. Timur Sukses Bajatama. All rights reserved. | Desain Elegant Futuristik</p>
+<footer class="bg-indigo-700 dark:bg-gray-950 text-center py-6 border-t-4 border-yellow-500 dark:border-indigo-600 transition-colors duration-300">
+    <p class="text-indigo-200 dark:text-gray-400 text-sm">&copy; 2025 PT. Timur Sukses Bajatama. All rights reserved. | Desain Elegant Futuristik</p>
 </footer>
 
 <script>
     // Inisialisasi Lucide Icons
-    // Perhatikan: Font Awesome tidak memerlukan inisialisasi seperti ini
     lucide.createIcons();
 
     // --- SCRIPT UNTUK SLIDER GAMBAR ---
@@ -405,10 +395,11 @@
             // Fungsi untuk menggeser slider
             const nextSlide = () => {
                 currentIndex = (currentIndex + 1) % totalSlides;
+                // Menggunakan transform dengan efek halus (CSS transition)
                 slider.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
             };
 
-            // Otomatis geser setiap 5 detik
+            // Otomatis geser setiap 5 detik (DIKEMBALIKAN KE 5000ms)
             setInterval(nextSlide, 5000); 
         }
     }
@@ -446,6 +437,39 @@
             link.addEventListener('click', closeMenu);
         });
     }
+
+    // --- SCRIPT UNTUK DARK MODE TOGGLE (BARU DITAMBAHKAN) ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    
+    // Periksa preferensi user atau yang tersimpan di localStorage saat load
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+    } else {
+        document.documentElement.classList.remove('dark');
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        // Toggle class 'dark' di root element
+        document.documentElement.classList.toggle('dark');
+        
+        // Simpan preferensi di localStorage
+        if (document.documentElement.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+            lightIcon.classList.add('hidden');
+            darkIcon.classList.remove('hidden');
+        } else {
+            localStorage.setItem('theme', 'light');
+            lightIcon.classList.remove('hidden');
+            darkIcon.classList.add('hidden');
+        }
+    });
+
 </script>
 
 </body>
