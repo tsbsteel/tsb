@@ -13,11 +13,15 @@
 
     <style>
         /* Konfigurasi Warna Kustom & Dark Mode (Monokromatik Elegan) */
+        /*
+        NOTE: Variabel CSS tidak dapat diakses langsung oleh Tailwind
+        namun bagus untuk mendefinisikan palet di root.
+        */
         :root {
-            /* Light Mode */
+            /* Light Mode Defaults */
             --primary-color: #312e81; /* Deep Indigo - Tetap Kuat */
             --accent-color: #eab308; /* Dark Gold/Amber - Lebih Berkelas */
-            --bg-body: #ffffff; /* Putih Bersih */
+            --bg-body: #ffffff; 
             --text-main: #1f2937; 
         }
         
@@ -36,7 +40,8 @@
             color: var(--text-main);
             line-height: 1.65;
             scroll-behavior: smooth;
-            transition: background-color 0.4s ease, color 0.4s ease;
+            /* Pastikan transisi untuk Dark Mode berjalan mulus */
+            transition: background-color 0.4s ease, color 0.4s ease; 
         }
 
         /* Kustomisasi Slider agar transisinya tetap dinamis */
@@ -93,6 +98,18 @@
         }
 
     </style>
+    
+    <script>
+        // Cek preferensi user/localStorage di awal
+        const isDarkMode = localStorage.getItem('theme') === 'dark' || 
+                           (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
 <body class="antialiased">
 
@@ -372,7 +389,7 @@
 </footer>
 
 <script>
-    // Inisialisasi Lucide Icons
+    // Inisialisasi Lucide Icons (PENTING: Harus dijalankan sebelum toggle)
     lucide.createIcons();
 
     // --- SCRIPT UNTUK SLIDER GAMBAR ---
@@ -421,34 +438,38 @@
         });
     }
 
-    // --- SCRIPT UNTUK DARK MODE TOGGLE ---
+    // --- SCRIPT UNTUK DARK MODE TOGGLE (REVISI) ---
     const themeToggle = document.getElementById('theme-toggle');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
-    
-    // Check saved preference
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        lightIcon.classList.add('hidden');
-        darkIcon.classList.remove('hidden');
-    } else {
-        document.documentElement.classList.remove('dark');
-        lightIcon.classList.remove('hidden');
-        darkIcon.classList.add('hidden');
-    }
 
-    themeToggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        
-        if (document.documentElement.classList.contains('dark')) {
-            localStorage.setItem('theme', 'dark');
+    // Fungsi untuk memperbarui ikon
+    const updateIcon = (isDark) => {
+        if (isDark) {
             lightIcon.classList.add('hidden');
             darkIcon.classList.remove('hidden');
         } else {
-            localStorage.setItem('theme', 'light');
             lightIcon.classList.remove('hidden');
             darkIcon.classList.add('hidden');
         }
+    };
+
+    // Inisialisasi ikon berdasarkan status class 'dark' saat ini
+    const initialIsDark = document.documentElement.classList.contains('dark');
+    updateIcon(initialIsDark);
+
+    // Listener untuk tombol toggle
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        
+        if (isDark) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+        
+        // Update ikon setelah toggle
+        updateIcon(isDark);
     });
 
 </script>
