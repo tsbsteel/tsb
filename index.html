@@ -4,101 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT. Timur Sukses Bajatama - Distributor Besi & Fabrikasi Logam</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <script src="https://unpkg.com/lucide@latest"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/cd8kOODxZkNsKxJhYhJv/5g5t50y5jHhT+r8bF/n9QY5pX20P5x8+D+v0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-        /* Konfigurasi Warna Kustom & Dark Mode (Monokromatik Elegan) */
-        /*
-        NOTE: Variabel CSS tidak dapat diakses langsung oleh Tailwind
-        namun bagus untuk mendefinisikan palet di root.
-        */
-        :root {
-            /* Light Mode Defaults */
-            --primary-color: #312e81; /* Deep Indigo - Tetap Kuat */
-            --accent-color: #eab308; /* Dark Gold/Amber - Lebih Berkelas */
-            --bg-body: #ffffff; 
-            --text-main: #1f2937; 
-        }
-        
-        /* Dark Mode Configuration */
-        .dark {
-            --primary-color: #818cf8; /* Light Indigo */
-            --accent-color: #fcd34d; /* Bright Gold */
-            --bg-body: #1f2937; /* Dark Slate Blue/Gray */
-            --text-main: #f3f4f6; /* Warna teks ringan */
-        }
+    <link rel="stylesheet" href="assets/css/style.css">
 
-        /* Styling Dasar */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.65;
-            scroll-behavior: smooth;
-            /* Pastikan transisi untuk Dark Mode berjalan mulus */
-            transition: background-color 0.4s ease, color 0.4s ease; 
-        }
-
-        /* Kustomisasi Slider agar transisinya tetap dinamis */
-        .slider-container {
-            height: 550px;
-            position: relative;
-            overflow: hidden;
-        }
-        .slider {
-            display: flex;
-            width: 300%; 
-            height: 100%;
-            transition: transform 1.2s ease-in-out;
-        }
-        .slider img {
-            width: calc(100% / 3);
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.65); /* Redupkan untuk kontras teks */
-        }
-
-        /* Hover Link Elegan (Garis halus) */
-        .nav-link-elegant {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        .nav-link-elegant::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease-out;
-        }
-        .nav-link-elegant:hover::after {
-            width: 100%;
-        }
-
-        /* Burger Menu Styling (Disederhanakan) */
-        .burger-menu .bar {
-            transition: all 0.3s ease-in-out;
-        }
-        .burger-menu.active .bar:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .burger-menu.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-        .burger-menu.active .bar:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-    </style>
-    
     <script>
         // Cek preferensi user/localStorage di awal
         const isDarkMode = localStorage.getItem('theme') === 'dark' || 
@@ -388,91 +301,7 @@
     <p class="text-indigo-200 dark:text-gray-400 text-sm">&copy; 2025 PT. Timur Sukses Bajatama. All rights reserved. | Desain Minimalis Elegan</p>
 </footer>
 
-<script>
-    // Inisialisasi Lucide Icons (PENTING: Harus dijalankan sebelum toggle)
-    lucide.createIcons();
-
-    // --- SCRIPT UNTUK SLIDER GAMBAR ---
-    const slider = document.getElementById("slider");
-    if (slider) {
-        let currentIndex = 0;
-        const totalSlides = slider.children.length;
-        const slideWidth = 100 / totalSlides; 
-
-        if (totalSlides > 1) {
-            const nextSlide = () => {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                slider.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-            };
-            setInterval(nextSlide, 5000); 
-        }
-    }
-
-    // --- SCRIPT UNTUK BURGER MENU ---
-    const burgerMenu = document.getElementById('burger');
-    const navMenu = document.getElementById('nav-menu');
-
-    const toggleMenu = () => {
-        burgerMenu.classList.toggle('active');
-        const isActive = navMenu.classList.toggle('active');
-
-        if (isActive) {
-            navMenu.classList.remove('opacity-0', '-translate-y-5', 'pointer-events-none');
-            navMenu.classList.add('opacity-100', 'translate-y-0');
-        } else {
-            navMenu.classList.remove('opacity-100', 'translate-y-0');
-            navMenu.classList.add('opacity-0', '-translate-y-5', 'pointer-events-none');
-        }
-    };
-
-    const closeMenu = () => {
-        if (burgerMenu.classList.contains('active')) {
-            toggleMenu();
-        }
-    }
-
-    if (burgerMenu && navMenu) {
-        burgerMenu.addEventListener('click', toggleMenu);
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-    }
-
-    // --- SCRIPT UNTUK DARK MODE TOGGLE (REVISI) ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-
-    // Fungsi untuk memperbarui ikon
-    const updateIcon = (isDark) => {
-        if (isDark) {
-            lightIcon.classList.add('hidden');
-            darkIcon.classList.remove('hidden');
-        } else {
-            lightIcon.classList.remove('hidden');
-            darkIcon.classList.add('hidden');
-        }
-    };
-
-    // Inisialisasi ikon berdasarkan status class 'dark' saat ini
-    const initialIsDark = document.documentElement.classList.contains('dark');
-    updateIcon(initialIsDark);
-
-    // Listener untuk tombol toggle
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        
-        if (isDark) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
-        
-        // Update ikon setelah toggle
-        updateIcon(isDark);
-    });
-
-</script>
+<script src="assets/js/main.js" defer></script>
 
 </body>
 </html>
