@@ -1,5 +1,3 @@
-// main.js
-
 // Bungkus semua kode yang berinteraksi dengan DOM di dalam DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     
