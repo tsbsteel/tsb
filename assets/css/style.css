@@ -7,14 +7,6 @@
     --text-main: #1f2937; 
 }
 
-/* Dark Mode Configuration */
-.dark {
-    --primary-color: #818cf8; /* Light Indigo */
-    --accent-color: #fcd34d; /* Bright Gold */
-    --bg-body: #1f2937; /* Dark Slate Blue/Gray */
-    --text-main: #f3f4f6; /* Warna teks ringan */
-}
-
 /* Styling Dasar */
 body {
     font-family: 'Inter', sans-serif;
@@ -77,4 +69,5 @@ body {
 }
 .burger-menu.active .bar:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+
 }
