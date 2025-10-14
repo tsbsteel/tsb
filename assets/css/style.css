@@ -1,11 +1,3 @@
-/* Konfigurasi Warna Kustom & Dark Mode (Monokromatik Elegan) */
-:root {
-    /* Light Mode Defaults */
-    --primary-color: #312e81; /* Deep Indigo - Tetap Kuat */
-    --accent-color: #eab308; /* Dark Gold/Amber - Lebih Berkelas */
-    --bg-body: #ffffff; 
-    --text-main: #1f2937; 
-}
 
 /* Styling Dasar */
 body {
@@ -71,3 +63,4 @@ body {
     transform: rotate(-45deg) translate(5px, -5px);
 
 }
+
