@@ -55,38 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- SCRIPT UNTUK DARK MODE TOGGLE ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-
-    // Fungsi untuk memperbarui ikon
-    const updateIcon = (isDark) => {
-        if (isDark) {
-            lightIcon.classList.add('hidden');
-            darkIcon.classList.remove('hidden');
-        } else {
-            lightIcon.classList.remove('hidden');
-            darkIcon.classList.add('hidden');
-        }
-    };
     
-    // Inisialisasi ikon berdasarkan status class 'dark' saat ini
-    const initialIsDark = document.documentElement.classList.contains('dark');
-    updateIcon(initialIsDark);
-
-    // Listener untuk tombol toggle
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        
-        if (isDark) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
-        
-        // Update ikon setelah toggle
-        updateIcon(isDark);
-    });
-
-});
