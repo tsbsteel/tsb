@@ -1,16 +1,4 @@
-/* Konfigurasi Warna Kustom (Hanya Light Mode) */
-:root {
-    /* Light Mode Defaults */
-    --primary-color: #312e81; /* Deep Indigo */
-    --accent-color: #eab308; /* Dark Gold/Amber */
-    --bg-body: #ffffff; 
-    --text-main: #1f2937; 
-}
 
-/* Dark Mode Configuration (DIHAPUS SEPENUHNYA) */
-/* .dark { ... } DIHAPUS! */
-
-/* Styling Dasar */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-body);
@@ -73,3 +61,4 @@ body {
 .burger-menu.active .bar:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
+
