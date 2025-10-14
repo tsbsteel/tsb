@@ -12,17 +12,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <script>
-        // Cek preferensi user/localStorage di awal
-        const isDarkMode = localStorage.getItem('theme') === 'dark' || 
-                           (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
+    
 </head>
 <body class="antialiased">
 
