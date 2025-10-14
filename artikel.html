@@ -12,99 +12,83 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <script>
-        // Cek preferensi user/localStorage di awal
-        const isDarkMode = localStorage.getItem('theme') === 'dark' || 
-                           (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
-</head>
+    </head>
 <body class="antialiased">
 
-<button id="theme-toggle" class="fixed bottom-6 right-6 z-[9999] p-3 rounded-full bg-gray-200 text-indigo-700 dark:bg-gray-700 dark:text-yellow-400 shadow-lg transition-all duration-300 hover:shadow-xl">
-    <i data-lucide="sun" id="theme-toggle-light-icon" class="w-6 h-6"></i>
-    <i data-lucide="moon" id="theme-toggle-dark-icon" class="w-6 h-6 hidden"></i>
-</button>
-
-
-<header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md dark:shadow-xl dark:shadow-black/50 transition-colors duration-300">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md transition-colors duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         
         <a href="index.html" class="flex items-center space-x-3 group">
             <img src="https://timursuksesbajatama.com/home/assets/images/logo/logo_tsb_80x80.png" alt="LOGO TSB" class="h-10 sm:h-12">
-            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-indigo-700 dark:text-white transition-colors duration-300">PT. <span class="text-yellow-600 dark:text-yellow-400 font-extrabold">TIMUR SUKSES</span> BAJATAMA</h1>
+            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-indigo-700 transition-colors duration-300">PT. <span class="text-yellow-600 font-extrabold">TIMUR SUKSES</span> BAJATAMA</h1>
         </a>
 
         <nav class="hidden lg:flex space-x-10">
-            <a href="index.html#tentang" class="text-gray-700 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-yellow-400 transition duration-300 font-medium nav-link-elegant">Tentang Kami</a>
-            <a href="index.html#produk" class="text-gray-700 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-yellow-400 transition duration-300 font-medium nav-link-elegant">Produk</a>
-            <a href="artikel.html" class="text-yellow-500 dark:text-yellow-400 hover:text-indigo-700 dark:hover:text-yellow-400 transition duration-300 font-bold nav-link-elegant">Artikel</a>
-            <a href="index.html#lokasi" class="text-gray-700 dark:text-gray-200 hover:text-indigo-700 dark:hover:text-yellow-400 transition duration-300 font-medium nav-link-elegant">Lokasi</a>
+            <a href="index.html#tentang" class="text-gray-700 hover:text-indigo-700 transition duration-300 font-medium nav-link-elegant">Tentang Kami</a>
+            <a href="index.html#produk" class="text-gray-700 hover:text-indigo-700 transition duration-300 font-medium nav-link-elegant">Produk</a>
+            <a href="artikel.html" class="text-yellow-500 hover:text-indigo-700 transition duration-300 font-bold nav-link-elegant">Artikel</a>
+            <a href="index.html#lokasi" class="text-gray-700 hover:text-indigo-700 transition duration-300 font-medium nav-link-elegant">Lokasi</a>
         </nav>
         
         <button class="lg:hidden burger-menu flex flex-col p-2" id="burger">
-            <span class="bar w-6 h-0.5 bg-indigo-700 dark:bg-white rounded-full my-1"></span>
-            <span class="bar w-6 h-0.5 bg-indigo-700 dark:bg-white rounded-full my-1"></span>
-            <span class="bar w-6 h-0.5 bg-indigo-700 dark:bg-white rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-indigo-700 rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-indigo-700 rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-indigo-700 rounded-full my-1"></span>
         </button>
     </div>
         
-    <nav id="nav-menu" class="lg:hidden absolute top-[72px] left-0 w-full bg-white dark:bg-gray-800 shadow-xl flex-col items-center pb-4 opacity-0 -translate-y-5 pointer-events-none transition-all duration-300">
-        <a href="index.html#tentang" class="block py-3 px-4 text-center text-indigo-700 dark:text-white hover:bg-gray-100 dark:hover:bg-indigo-700 transition duration-200 w-full font-medium" onclick="closeMenu()">Tentang Kami</a>
-        <a href="index.html#produk" class="block py-3 px-4 text-center text-indigo-700 dark:text-white hover:bg-gray-100 dark:hover:bg-indigo-700 transition duration-200 w-full font-medium" onclick="closeMenu()">Produk</a>
-        <a href="artikel.html" class="block py-3 px-4 text-center text-yellow-500 dark:text-yellow-400 hover:bg-gray-100 dark:hover:bg-indigo-700 transition duration-200 w-full font-bold" onclick="closeMenu()">Artikel</a>
-        <a href="index.html#lokasi" class="block py-3 px-4 text-center text-indigo-700 dark:text-white hover:bg-gray-100 dark:hover:bg-indigo-700 transition duration-200 w-full font-medium" onclick="closeMenu()">Lokasi</a>
+    <nav id="nav-menu" class="lg:hidden absolute top-[72px] left-0 w-full bg-white shadow-xl flex-col items-center pb-4 opacity-0 -translate-y-5 pointer-events-none transition-all duration-300">
+        <a href="index.html#tentang" class="block py-3 px-4 text-center text-indigo-700 hover:bg-gray-100 transition duration-200 w-full font-medium" onclick="closeMenu()">Tentang Kami</a>
+        <a href="index.html#produk" class="block py-3 px-4 text-center text-indigo-700 hover:bg-gray-100 transition duration-200 w-full font-medium" onclick="closeMenu()">Produk</a>
+        <a href="artikel.html" class="block py-3 px-4 text-center text-yellow-500 hover:bg-gray-100 transition duration-200 w-full font-bold" onclick="closeMenu()">Artikel</a>
+        <a href="index.html#lokasi" class="block py-3 px-4 text-center text-indigo-700 hover:bg-gray-100 transition duration-200 w-full font-medium" onclick="closeMenu()">Lokasi</a>
     </nav>
 </header>
 
-<section id="artikel-header" class="bg-indigo-700 dark:bg-gray-900 pt-28 pb-16 transition-colors duration-300">
+<section id="artikel-header" class="bg-indigo-700 pt-28 pb-16 transition-colors duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center">
         <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-3">
             Edukasi Material Besi & Baja
         </h1>
-        <p class="text-lg text-indigo-200 dark:text-gray-400">
+        <p class="text-lg text-indigo-200">
             Kumpulan artikel, tips, dan panduan lengkap mengenai besi beton, baja struktural, hingga teknik fabrikasi.
         </p>
     </div>
 </section>
 
-<section id="artikel-list" class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+<section id="artikel-list" class="py-16 sm:py-24 bg-gray-50 transition-colors duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         
         <div class="grid md:grid-cols-2 gap-10 lg:gap-12">
             
-            <article class="bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl group">
+            <article class="bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl group">
                 <img src="https://berauterkini.co.id/wp-content/uploads/2025/02/IMG-20250225-WA0006.jpg" alt="IKN" class="w-full h-64 object-cover object-center group-hover:scale-[1.03] transition-transform duration-300">
-    <div class="p-8">
-        <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600 dark:text-yellow-400">Sejarah Infrastruktur</span>
-        <h2 class="text-2xl font-bold text-indigo-700 dark:text-white mt-2 mb-4">
-            Samarinda dan Simfoni Baja di Atas Mahakam...
-        </h2>
-        <p class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">
-            Menelusuri peran baja dan rekayasa di balik pembangunan Jembatan Mahakam I, jembatan besi pertama di Pulau Kalimantan.
-        </p>
-        <a href="post-mahakami.html" class="inline-flex items-center text-indigo-600 dark:text-yellow-400 font-semibold group-hover:underline">
-            Baca Selengkapnya 
-            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-        </a>
-    </div>
-</article>
-            <article class="bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl group">
+                <div class="p-8">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600">Sejarah Infrastruktur</span>
+                    <h2 class="text-2xl font-bold text-indigo-700 mt-2 mb-4">
+                        Samarinda dan Simfoni Baja di Atas Mahakam...
+                    </h2>
+                    <p class="text-gray-600 mb-6 line-clamp-3">
+                        Menelusuri peran baja dan rekayasa di balik pembangunan Jembatan Mahakam I, jembatan besi pertama di Pulau Kalimantan.
+                    </p>
+                    <a href="post-mahakami.html" class="inline-flex items-center text-indigo-600 font-semibold group-hover:underline">
+                        Baca Selengkapnya 
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl group">
                 <img src="https://www.kabarbursa.com/uploads/covers/1758953843-68d7817313ffc.webp" alt="Indo" class="w-full h-64 object-cover object-center group-hover:scale-[1.03] transition-transform duration-300">
                 <div class="p-8">
-                    <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600 dark:text-yellow-400">Baja Struktural</span>
-                    <h2 class="text-2xl font-bold text-indigo-700 dark:text-white mt-2 mb-4">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600">Baja Struktural</span>
+                    <h2 class="text-2xl font-bold text-indigo-700 mt-2 mb-4">
                         PT. TSB: Menggerakkan Pembangunan Kaltim, Dari Tepian Mahakam Hingga Jantung IKN
                     </h2>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">
-                       Menelusuri peran PT. Timur Sukses Bajatama sebagai distributor besi dan baja terdepan dengan jangkauan logistik tak tertandingi, mendukung proyek-proyek vital termasuk Ibu Kota Nusantara (IKN).
+                    <p class="text-gray-600 mb-6 line-clamp-3">
+                        Menelusuri peran PT. Timur Sukses Bajatama sebagai distributor besi dan baja terdepan dengan jangkauan logistik tak tertandingi, mendukung proyek-proyek vital termasuk Ibu Kota Nusantara (IKN).
                     </p>
-                    <a href="https://tsbsteel.github.io/tsb/tsb-ikn.html" class="inline-flex items-center text-indigo-600 dark:text-yellow-400 font-semibold group-hover:underline">
+                    <a href="post-peran-tsb-ikn.html" class="inline-flex items-center text-indigo-600 font-semibold group-hover:underline">
                         Baca Selengkapnya 
                         <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
                     </a>
@@ -112,38 +96,38 @@
             </article>
 
             <article class="bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl group">
-    <img src="https://img.okezone.com/content/2025/09/07/338/3168304/bangunan_ambruk_saat_peringatan_maulid_di_ciomas-xgh6_large.jpeg" alt="Ilustrasi Kegagalan Konstruksi" class="w-full h-64 object-cover object-center group-hover:scale-[1.03] transition-transform duration-300">
-    <div class="p-8">
-        <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600">Peringatan Konstruksi</span>
-        <h2 class="text-2xl font-bold text-indigo-700 mt-2 mb-4">
-            Tragedi Ciomas Bogor: Analisis Mendalam Kegagalan Struktural
-        </h2>
-        <p class="text-gray-600 mb-6 line-clamp-3">
-            Analisis kritis terhadap ambruknya gedung Majelis Taklim yang baru berusia enam bulan. Menekankan pentingnya material bersertifikasi SNI dan audit desain struktural.
-        </p>
-        <a href="ciomas.html" class="inline-flex items-center text-indigo-600 font-semibold group-hover:underline">
-            Baca Selengkapnya 
-            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-        </a>
-    </div>
-</article>
+                <img src="https://img.okezone.com/content/2025/09/07/338/3168304/bangunan_ambruk_saat_peringatan_maulid_di_ciomas-xgh6_large.jpeg" alt="Ilustrasi Kegagalan Konstruksi" class="w-full h-64 object-cover object-center group-hover:scale-[1.03] transition-transform duration-300">
+                <div class="p-8">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600">Peringatan Konstruksi</span>
+                    <h2 class="text-2xl font-bold text-indigo-700 mt-2 mb-4">
+                        Tragedi Ciomas Bogor: Analisis Mendalam Kegagalan Struktural
+                    </h2>
+                    <p class="text-gray-600 mb-6 line-clamp-3">
+                        Analisis kritis terhadap ambruknya gedung Majelis Taklim yang baru berusia enam bulan. Menekankan pentingnya material bersertifikasi SNI dan audit desain struktural.
+                    </p>
+                    <a href="post-tragedi-ciomas.html" class="inline-flex items-center text-indigo-600 font-semibold group-hover:underline">
+                        Baca Selengkapnya 
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </article>
 
             <article class="bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl group">
-    <img src="https://kpssteel.com/storage/2023/05/toko-besi-terdekat-kps-steel-distributor-besi-jakarta.jpg" alt="Pengiriman Besi dan Baja di Kaltim" class="w-full h-64 object-cover object-center group-hover:scale-[1.03] transition-transform duration-300">
-    <div class="p-8">
-        <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600">Solusi Bisnis & Logistik</span>
-        <h2 class="text-2xl font-bold text-indigo-700 mt-2 mb-4">
-            Distributor Besi Terbaik di Kalimantan Timur: Solusi Proyek Samarinda & Balikpapan
-        </h2>
-        <p class="text-gray-600 mb-6 line-clamp-3">
-            Panduan lengkap memilih distributor besi beton SNI dan baja terlengkap. Menawarkan keunggulan logistik, stok *ready* di Samarinda dan Balikpapan, serta harga yang kompetitif.
-        </p>
-        <a href="jualbesi.html" class="inline-flex items-center text-indigo-600 font-semibold group-hover:underline">
-            Baca Selengkapnya 
-            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-        </a>
-    </div>
-</article>
+                <img src="https://kpssteel.com/storage/2023/05/toko-besi-terdekat-kps-steel-distributor-besi-jakarta.jpg" alt="Pengiriman Besi dan Baja di Kaltim" class="w-full h-64 object-cover object-center group-hover:scale-[1.03] transition-transform duration-300">
+                <div class="p-8">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600">Solusi Bisnis & Logistik</span>
+                    <h2 class="text-2xl font-bold text-indigo-700 mt-2 mb-4">
+                        Distributor Besi Terbaik di Kalimantan Timur: Solusi Proyek Samarinda & Balikpapan
+                    </h2>
+                    <p class="text-gray-600 mb-6 line-clamp-3">
+                        Panduan lengkap memilih distributor besi beton SNI dan baja terlengkap. Menawarkan keunggulan logistik, stok *ready* di Samarinda dan Balikpapan, serta harga yang kompetitif.
+                    </p>
+                    <a href="post-distributor-terbaik.html" class="inline-flex items-center text-indigo-600 font-semibold group-hover:underline">
+                        Baca Selengkapnya 
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </article>
 
         </div>
         
@@ -151,8 +135,8 @@
 </section>
 
 
-<footer class="bg-indigo-700 dark:bg-gray-950 text-center py-6 border-t-4 border-yellow-500 transition-colors duration-300">
-    <p class="text-indigo-200 dark:text-gray-400 text-sm">&copy; 2025 PT. Timur Sukses Bajatama. All rights reserved. | Desain Minimalis Elegan</p>
+<footer class="bg-indigo-700 text-center py-6 border-t-4 border-yellow-500 transition-colors duration-300">
+    <p class="text-indigo-200 text-sm">&copy; 2025 PT. Timur Sukses Bajatama. All rights reserved. | Desain Minimalis Elegan</p>
 </footer>
 
 <script src="assets/js/main.js" defer></script>
