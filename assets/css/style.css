@@ -1,19 +1,14 @@
-/* Konfigurasi Warna Kustom & Dark Mode (Monokromatik Elegan) */
+/* Konfigurasi Warna Kustom (Hanya Light Mode) */
 :root {
     /* Light Mode Defaults */
-    --primary-color: #312e81; /* Deep Indigo - Tetap Kuat */
-    --accent-color: #eab308; /* Dark Gold/Amber - Lebih Berkelas */
+    --primary-color: #312e81; /* Deep Indigo */
+    --accent-color: #eab308; /* Dark Gold/Amber */
     --bg-body: #ffffff; 
     --text-main: #1f2937; 
 }
 
-/* Dark Mode Configuration */
-.dark {
-    --primary-color: #818cf8; /* Light Indigo */
-    --accent-color: #fcd34d; /* Bright Gold */
-    --bg-body: #1f2937; /* Dark Slate Blue/Gray */
-    --text-main: #f3f4f6; /* Warna teks ringan */
-}
+/* Dark Mode Configuration (DIHAPUS SEPENUHNYA) */
+/* .dark { ... } DIHAPUS! */
 
 /* Styling Dasar */
 body {
@@ -22,11 +17,11 @@ body {
     color: var(--text-main);
     line-height: 1.65;
     scroll-behavior: smooth;
-    /* Pastikan transisi untuk Dark Mode berjalan mulus */
-    transition: background-color 0.4s ease, color 0.4s ease; 
+    /* Transisi mode warna dihapus */
+    transition: none; 
 }
 
-/* Kustomisasi Slider agar transisinya tetap dinamis */
+/* Kustomisasi Slider */
 .slider-container {
     height: 550px;
     position: relative;
@@ -65,7 +60,7 @@ body {
     width: 100%;
 }
 
-/* Burger Menu Styling (Disederhanakan) */
+/* Burger Menu Styling */
 .burger-menu .bar {
     transition: all 0.3s ease-in-out;
 }
