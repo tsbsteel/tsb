@@ -3,8 +3,7 @@
 // Bungkus semua kode yang berinteraksi dengan DOM di dalam DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Inisialisasi Lucide Icons (PENTING: Harus dijalankan di awal)
-    // Sekarang diletakkan di sini setelah DOM siap.
+    // Inisialisasi Lucide Icons
     lucide.createIcons();
 
     // --- SCRIPT UNTUK SLIDER GAMBAR ---
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentIndex = (currentIndex + 1) % totalSlides;
                 slider.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
             };
-            // Ganti interval, karena JS di luar body tag
             setInterval(nextSlide, 5000); 
         }
     }
@@ -41,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Fungsi tambahan untuk menutup menu saat link diklik (agar lebih ramah mobile)
+    // Fungsi tambahan untuk menutup menu saat link diklik
     const closeMenu = () => {
         if (burgerMenu.classList.contains('active')) {
             toggleMenu();
@@ -55,4 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
+    // --- SCRIPT UNTUK DARK MODE TOGGLE DIHAPUS SEPENUHNYA ---
+
+});
