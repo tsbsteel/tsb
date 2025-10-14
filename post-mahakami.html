@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samarinda dan Simfoni Baja di Atas Mahakam - PT. Timur Sukses Bajatama</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/cd8kOODxZkNsKxJhYhJv/5g5t50y5jHhT+r8bF/n9QY5pX20P5x8+D+v0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md transition-colors duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        
+        <a href="index.html" class="flex items-center space-x-3 group">
+            <img src="https://timursuksesbajatama.com/home/assets/images/logo/logo_tsb_80x80.png" alt="LOGO TSB" class="h-10 sm:h-12">
+            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-indigo-700 transition-colors duration-300">PT. <span class="text-yellow-600 font-extrabold">TIMUR SUKSES</span> BAJATAMA</h1>
+        </a>
+
+        <nav class="hidden lg:flex space-x-10">
+            <a href="index.html#tentang" class="text-gray-700 hover:text-indigo-700 transition duration-300 font-medium nav-link-elegant">Tentang Kami</a>
+            <a href="index.html#produk" class="text-gray-700 hover:text-indigo-700 transition duration-300 font-medium nav-link-elegant">Produk</a>
+            <a href="artikel.html" class="text-yellow-600 font-bold hover:text-indigo-700 transition duration-300 nav-link-elegant">Artikel</a>
+            <a href="index.html#lokasi" class="text-gray-700 hover:text-indigo-700 transition duration-300 font-medium nav-link-elegant">Lokasi</a>
+        </nav>
+        
+        <button class="lg:hidden burger-menu flex flex-col p-2" id="burger">
+            <span class="bar w-6 h-0.5 bg-indigo-700 rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-indigo-700 rounded-full my-1"></span>
+            <span class="bar w-6 h-0.5 bg-indigo-700 rounded-full my-1"></span>
+        </button>
+    </div>
+        
+    <nav id="nav-menu" class="lg:hidden absolute top-[72px] left-0 w-full bg-white shadow-xl flex-col items-center pb-4 opacity-0 -translate-y-5 pointer-events-none transition-all duration-300">
+        <a href="index.html#tentang" class="block py-3 px-4 text-center text-indigo-700 hover:bg-gray-100 transition duration-200 w-full font-medium" onclick="closeMenu()">Tentang Kami</a>
+        <a href="index.html#produk" class="block py-3 px-4 text-center text-indigo-700 hover:bg-gray-100 transition duration-200 w-full font-medium" onclick="closeMenu()">Produk</a>
+        <a href="artikel.html" class="block py-3 px-4 text-center text-yellow-600 font-bold hover:bg-gray-100 transition duration-200 w-full" onclick="closeMenu()">Artikel</a>
+        <a href="index.html#lokasi" class="block py-3 px-4 text-center text-indigo-700 hover:bg-gray-100 transition duration-200 w-full font-medium" onclick="closeMenu()">Lokasi</a>
+    </nav>
+</header>
+
+
+<main class="pt-24 pb-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-indigo-800 leading-tight mb-4">
+                Samarinda dan Simfoni Baja di Atas Mahakam: Menelusuri Sejarah Pembangunan Kota Tepian
+            </h1>
+            <p class="text-gray-500 text-sm">
+                <i data-lucide="clock" class="inline w-4 h-4 mr-1 text-yellow-600"></i>
+                Dipublikasikan: 14 Oktober 2025 | Kategori: Sejarah & Infrastruktur Baja
+            </p>
+        </header>
+
+        <figure class="mb-10 rounded-xl overflow-hidden shadow-2xl">
+            <img src="https://i.ibb.co/rQfHh08/Jembatan-Mahakam-I-Samarinda.jpg" alt="Jembatan Mahakam I Samarinda" class="w-full h-auto object-cover">
+            <figcaption class="p-3 text-center text-xs text-gray-500 bg-gray-50 border-t">
+                Jembatan Mahakam I, Simbol Konektivitas Kota Samarinda.
+            </figcaption>
+        </figure>
+        
+        <div class="prose max-w-none text-gray-700 space-y-6 text-lg leading-relaxed article-content">
+            
+            <p>Kota Samarinda hari ini berdiri sebagai jantung pemerintahan dan perekonomian Kalimantan Timur, namun pondasi peradabannya telah ditanam jauh di masa lampau. Sejarah Samarinda bermula dari perpaduan budaya dan migrasi. Sebelum dikenal dengan namanya yang sekarang, wilayah ini merupakan bagian dari Kesultanan Kutai Kartanegara, ditandai dengan enam perkampungan awal di tepian Sungai Mahakam. Titik pentingnya adalah kedatangan rombongan Suku Banjar dan Suku Bugis Wajo di sekitar abad ke-16 dan ke-17. Khususnya komunitas Bugis Wajo yang berdatangan untuk berdagang, diberi izin oleh Sultan Kutai untuk menetap dan membentuk permukiman yang kemudian melahirkan nama **"Samarinda,"** yang konon berasal dari kata Melayu atau Banjar yang berarti **"sama rendah,"** merujuk pada tata letak rumah penduduk atau permukaan tanahnya yang sejajar dengan sungai.</p>
+            
+            <p>Perkembangan Samarinda menjadi kota dagang yang vital semakin dikukuhkan di masa kolonial. Sejak kontak awal dengan VOC di abad ke-17, Belanda menyadari posisi strategis Samarinda sebagai gerbang menuju pedalaman Kalimantan. Di bawah Pemerintah Hindia Belanda, pos-pos dagang didirikan, dan pada tahun 1946, Samarinda resmi ditetapkan sebagai Ibu Kota Keresidenan Kalimantan Timur. Setelah kemerdekaan, peran strategisnya meningkat drastis. Pada tahun 1957, Samarinda diangkat menjadi Ibu Kota Provinsi Kalimantan Timur. Dekade 1960-an hingga 1980-an menjadi era ledakan ekonomi yang dijuluki **"pusat emas hijau,"** didominasi oleh industri perkayuan, yang menarik urbanisasi besar-besaran dan mendorong perlunya peningkatan infrastruktur kota secara masif.</p>
+
+            <h2 class="text-3xl font-bold text-indigo-700 pt-6 border-t-2 border-yellow-500">
+                Lahirnya Jembatan Mahakam I
+            </h2>
+            
+            <p>Kebutuhan akan konektivitas yang memadai antara Samarinda Kota dan Samarinda Seberang, yang terpisahkan oleh lebar dan derasnya Sungai Mahakam, melahirkan proyek monumental: **Jembatan Mahakam I**. Sebelumnya, seluruh mobilitas barang dan manusia bergantung pada penyeberangan feri yang tidak efisien. Pembangunan Jembatan Mahakam digagas oleh Gubernur Ery Supardjan dan tiang pancang pertamanya dicanangkan pada 6 Oktober 1983. Proyek ini bukan tanpa hambatan; struktur tanah dasar sungai yang dalam dan berlumpur menjadi tantangan teknis yang sangat besar, memaksa kontraktor PT Hutama Karya untuk mengadopsi teknologi pondasi hidraulis dan menggunakan material rangka **baja impor dari Hollandia Kloos, Belanda**.</p>
+            
+            <p>Jembatan Mahakam I akhirnya diresmikan oleh Presiden Soeharto pada tahun 1987, menjadi **jembatan besi pertama di Pulau Kalimantan**. Secara teknis, jembatan rangka baja (*Steel Truss Bridge*) ini memiliki panjang sekitar 400 meter, berfungsi sebagai arteri utama yang menghubungkan kedua sisi kota. Dampak ekonominya sangat besar; Jembatan Mahakam menjadi simpul vital **Jalur Trans-Kalimantan** dan secara dramatis memicu pertumbuhan pemukiman, perdagangan, dan industri di Samarinda Seberang. Kehadirannya mempersingkat rantai logistik dan mempercepat pemerataan pembangunan di wilayah tersebut.</p>
+            
+            <p>Seiring berjalannya waktu dan meningkatnya aktivitas industri batu bara di Sungai Mahakam, Jembatan Mahakam I seringkali mengalami benturan dari tongkang. Untuk mengurangi beban lalu lintas dan mengatasi masalah penuaan struktur, pemerintah kemudian membangun jembatan-jembatan baru, seperti Jembatan Mahakam IV (Jembatan Kembar), Jembatan Mahakam Ulu, dan Jembatan Mahkota II. Meskipun demikian, Jembatan Mahakam I tetap berdiri kokoh. Jembatan ini bukan sekadar infrastruktur penghubung, melainkan **simbol kemajuan rekayasa Indonesia** dan saksi bisu transisi Samarinda dari permukiman dagang kuno menjadi ibu kota provinsi yang modern dan dinamis.</p>
+
+            <div class="p-6 bg-gray-100 rounded-lg border-l-4 border-yellow-500 mt-8 text-sm italic">
+                <i data-lucide="info" class="inline w-4 h-4 mr-2 text-yellow-600"></i>
+                Sebagai distributor besi dan baja, PT. Timur Sukses Bajatama bangga menjadi bagian dari pembangunan infrastruktur di Kalimantan Timur, melanjutkan warisan ketahanan material yang telah dibuktikan oleh Jembatan Mahakam I.
+            </div>
+            
+        </div>
+        
+    </div>
+</main>
+
+
+<footer class="bg-indigo-700 text-center py-6 border-t-4 border-yellow-500 transition-colors duration-300">
+    <p class="text-indigo-200 text-sm">&copy; 2025 PT. Timur Sukses Bajatama. All rights reserved. | Desain Minimalis Elegan</p>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
